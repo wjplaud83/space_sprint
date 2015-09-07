@@ -1,25 +1,22 @@
-using UnityEngine;
-using System.Collections;
+#pragma strict
 
-public class playerScript : MonoBehaviour
-{
-	public float speed = 0.1F;
-	public static int Score = 0;
-	public static int HighScore = 0;
-	public static int Lives = 5;
-	public GameObject ExplosionPrefab;
+	var speed : float = 0.1F;
+	var public : Score = 0; // this code comes out as an error in js
+	var public : HighScore = 0;
+	var public : Lives = 5;
+	var GameObject : ExplosionPrefab;
 
-	// Use this for initialization
-	void Start ()
-	{
-		HighScore = PlayerPrefs.GetInt("HighScore");
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		//movement speed of ship
-		if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
+
+// Use this for initialization
+function Start () {
+	HighScore = PlayerPrefs.GetInt("HighScore");
+}
+
+// Update is called once per frame
+function Update () {
+
+	//movement speed of ship
+		if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved); {
 			Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 			transform.Translate(touchDeltaPosition.x * speed, touchDeltaPosition.y * speed, 0);
 
@@ -73,6 +70,4 @@ public class playerScript : MonoBehaviour
 				else
 					Application.LoadLevel("gameover");
 			}
-			}
-
-
+			
