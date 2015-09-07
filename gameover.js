@@ -1,12 +1,9 @@
-using UnityEngine;
-using System.Collections;
+#pragma strict
 
-public class gameover : MonoBehaviour
-{
-	public bool isQuit = false;
+	var isQuit = false;
 
 	// Update is called once per frame
-	void OnTouchDown()
+	function OnTouchDown()
 	{
 	if(isQuit)
 		{
@@ -18,5 +15,4 @@ public class gameover : MonoBehaviour
 			playerScript.Lives = 5;
 			Application.LoadLevel(2);
 		}
-}
 }
