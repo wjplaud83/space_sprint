@@ -4,7 +4,7 @@
 	var myInt : Score = 0;
 	var myInt : HighScore = 0;
 	var myint : Lives = 5;
-	var GameObject ExplosionPrefab; //error
+	var GameObject ExplosionPrefab;   //';' expected. Insert semicolon at end. (UCE0001)
 
 
 // Use this for initialization
@@ -17,10 +17,10 @@ function Update () {
 
 	//movement speed of ship
 		if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
-			Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;	//error
+			Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;	//';' expected. Insert semicolon at end. (UCE0001)
 			transform.Translate(touchDeltaPosition.x * speed, touchDeltaPosition.y * speed, 0);
 
-			Vector3 playerSize = renderer.bounds.size;	//error
+			Vector3 playerSize = renderer.bounds.size;	//';' expected. Insert semicolon at end. (UCE0001)
 
 			//screen boundary
 			var distance = (transform.position - Camera.main.transform.position).z;
@@ -54,7 +54,7 @@ function Update () {
 			function OnTriggerEnter2D(Collider2D)
 			{
 				playerScript.Lives--;
-				shipScript enemy = (ShipScript)gameObject.GetComponent("player");
+				shipScript enemy = (ShipScript)gameObject.GetComponent("player");	//';' expected. Insert semicolon at end. (UCE0001)
 
 				StartCoroutine(DestroyShip());
 			}
