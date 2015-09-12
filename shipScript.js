@@ -1,6 +1,6 @@
 #pragma strict
 
-	var float speed = -11f; //';' expected semicolon at end (UCE0001)
+	var speed = -11f; 
 
 	// Update is called once per frame
 	function Update ()
