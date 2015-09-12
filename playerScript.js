@@ -1,10 +1,10 @@
 #pragma strict
 
-	var speed : float = 0.1F;
-	var public : Score = 0; // this code comes out as an error in js
-	var public : HighScore = 0;
-	var public : Lives = 5;
-	var GameObject : ExplosionPrefab;
+	var float: speed = 0.1F;
+	var myInt : Score = 0;
+	var myInt : HighScore = 0;
+	var myint : Lives = 5;
+	var GameObject ExplosionPrefab; //error
 
 
 // Use this for initialization
@@ -16,11 +16,11 @@ function Start () {
 function Update () {
 
 	//movement speed of ship
-		if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved); {
-			Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+		if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
+			Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;	//error
 			transform.Translate(touchDeltaPosition.x * speed, touchDeltaPosition.y * speed, 0);
 
-			Vector3 playerSize = renderer.bounds.size;
+			Vector3 playerSize = renderer.bounds.size;	//error
 
 			//screen boundary
 			var distance = (transform.position - Camera.main.transform.position).z;
@@ -44,17 +44,17 @@ function Update () {
 				PlayerPrefs.SetInt("HighScore", HighScore);
 				}
 
-				void OnGUI()
+				function OnGUI()
 				{
 				GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, new Vector3(3, 3, 3));
 				GUI.Label (new Rect(10, 10, 120, 20), "Score: " + playerScript.Score.ToString ());
 				GUI.Label (new Rect(10, 30, 120, 20), "HighScore: " + playerScript.HighScore.ToString ());
 				GUI.Label (new Rect(10, 50, 120, 20), "Lives: " + playerScript.Lives.ToString ());
 			}
-			void OnTriggerEnter2D(Collider2D other)
+			function OnTriggerEnter2D(Collider2D)
 			{
 				playerScript.Lives--;
-				ShipScript enemy = (ShipScript)gameObject.GetComponent("player");
+				shipScript enemy = (ShipScript)gameObject.GetComponent("player");
 
 				StartCoroutine(DestroyShip());
 			}
@@ -64,7 +64,7 @@ function Update () {
 				Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
 				gameObject.renderer.enabled = false;
 				transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-				yield return new WaitForSeconds(0.1f);
+				yield WaitForSeconds(0.1f);
 				if (playerScript.Lives > -1)
 					gameObject.renderer.enabled = true;
 				else
