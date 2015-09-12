@@ -1,10 +1,10 @@
 #pragma strict
 
-	public float delayTime = 3; //unexpected semicolon
+	public float delayTime = 3; 
 
 	IEnumerator Start ()
 	{
-		yield return new WaitForSeconds(delayTime); //expected semicolon
+		yield WaitForSeconds(delayTime);
 		Application.LoadLevel(1);
 	}
 
